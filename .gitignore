@@ -1,2 +1,6 @@
 *.bin
 *.csv
+model.ipynb
+weatherAUS.csv
+*.db
+mlruns/

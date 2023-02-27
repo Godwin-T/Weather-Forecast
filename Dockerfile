@@ -9,8 +9,8 @@ COPY ["Pipfile", "Pipfile.lock","./"]
 RUN pipenv install --system --deploy
 
 
-COPY ["api.py", "./"]
+COPY ["app.py", "service.py", "weather.bin", "./"]
 
 EXPOSE 5000
 
-ENTRYPOINT ["waitress", "--bind = 127.0.0.1:5000", "Q6docker_predict:app"]
+ENTRYPOINT ["waitress", "--bind = 127.0.0.1:5000", "predict:app"]
