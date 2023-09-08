@@ -8,7 +8,7 @@ COPY ["Pipfile", "Pipfile.lock","./"]
 
 RUN pipenv install --system --deploy
 
-COPY ["app.py", "service.py", "weather.bin", "./"]
+COPY ["predict.py", "weather.bin", "./"]
 
 EXPOSE 5000
 
