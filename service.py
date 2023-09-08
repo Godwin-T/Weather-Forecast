@@ -28,6 +28,3 @@ data = {'date': '2008-12-11',
 
 response = requests.post(url, json = data).json()
 print(response)
-
-# if response['Churn'] == True:
-#     print(f"The customer with the an ID of {data['customerid']} probability of churning is {response['Prediction']}")
