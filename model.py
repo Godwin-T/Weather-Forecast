@@ -2,7 +2,6 @@
 print("Importing Libraries")
 import pandas as pd
 import pickle
-import numpy as np
 import xgboost as xgb
 from imblearn.over_sampling import SMOTE
 from sklearn.feature_extraction import DictVectorizer
@@ -91,7 +90,7 @@ def encoding(train_data, val_data):
 
     dv = DictVectorizer(sparse = False)
     dv.fit(train_data[cat_col + num_col].to_dict(orient = 'records'))
-    feature_names = dv.get_feature_names()
+    feature_names = dv.get_feature_names_out()
 
     
 
@@ -151,7 +150,7 @@ def saving_model(model, data_encoder):
         pickle.dump([model, data_encoder], f)
     print("Successfully saved the model")
 
-def run(path = './weatherAUS.csv'):
+def run(path = './data/weatherAUS.csv'):
     
     print('Loading Data....')
     data = load_data(path)
@@ -169,3 +168,4 @@ def run(path = './weatherAUS.csv'):
     print("Saving Model")
     saving_model(output_model, dv)
 
+run()

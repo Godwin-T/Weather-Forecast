@@ -4,7 +4,7 @@ import pickle
 import xgboost as xgb
 import streamlit as st
 
-path = ('C:/Users/Godwin/Documents/Workflow/Project/model.bin')
+path = './model.bin'
 
 with open(path, 'rb') as f:
     model, scaler, dv = pickle.load(f)
