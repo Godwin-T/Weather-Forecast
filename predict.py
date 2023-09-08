@@ -1,13 +1,12 @@
 #Importing Libries
 import pandas as pd
-import numpy as np
 import pickle
 import xgboost as xgb
 from flask import Flask, request, jsonify
 
 
 # Loading model
-path = 'C:/Users/Godwin/Documents/Workflow/Project/Weather/weather.bin'
+path = './weather.bin'
 with open(path, 'rb') as f:
     model, dv = pickle.load(f)
 
