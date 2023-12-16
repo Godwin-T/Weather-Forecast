@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run a script
+      uses: actions/run-a-script@v1
       run: |
            echo Hello World!
            echo Add other actions
