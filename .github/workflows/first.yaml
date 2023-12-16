@@ -8,9 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Run a script
-      uses: actions/run-a-script@v1
-      run: |
-           echo Hello World!
-           echo Add other actions
-           echo test and deploy project 
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup python
+      uses: actions/setup-python@v4
+      with: 
+            python-version: 3.9
+    - name: Run script
+      run:  |
+          echo Hello World!
+          echo Add other actions
+          python hello.py
