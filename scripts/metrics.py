@@ -15,6 +15,11 @@ def save_metrics(metrics):
     with open("../metrics.json", "w") as fp:
         json.dump(metrics, fp)
 
+def save_predictions(y_test, y_pred):
+    # Store predictions data for confusion matrix
+    cdf = pd.DataFrame(np.column_stack([y_test, y_pred]), 
+                       columns=["true_label", "predicted_label"]).astype(int)
+    cdf.to_csv("predictions.csv", index=None)
 
 def save_roc_curve(y_test, y_pred_proba):
     # Calcualte ROC curve
