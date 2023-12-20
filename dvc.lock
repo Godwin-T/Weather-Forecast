@@ -13,8 +13,8 @@ stages:
       size: 3286
     - path: scripts/utils_and_constants.py
       hash: md5
-      md5: 0b716121e49493891043f1aaf85d217a
-      size: 1047
+      md5: 2d47bf8e4f3cc08743f733d12c22f44d
+      size: 1125
     outs:
     - path: processed_data/weatherAUS.csv
       hash: md5
@@ -41,18 +41,18 @@ stages:
       size: 1166
     - path: scripts/utils_and_constants.py
       hash: md5
-      md5: 0b716121e49493891043f1aaf85d217a
-      size: 1047
+      md5: 2d47bf8e4f3cc08743f733d12c22f44d
+      size: 1125
     outs:
-    - path: metrics.json
+    - path: model_output/metrics.json
       hash: md5
       md5: e878b7e47658e922ccf3e4bdb41399b4
       size: 74
-    - path: predictions.csv
+    - path: model_output/predictions.csv
       hash: md5
       md5: 3d328805c583dacc676e02d752e9f7f0
       size: 145487
-    - path: roc_curve.csv
+    - path: model_output/roc_curve.csv
       hash: md5
       md5: 7da0693ef7954ea088a35af475120e50
       size: 289105
