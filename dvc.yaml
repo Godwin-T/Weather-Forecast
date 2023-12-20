@@ -1,0 +1,38 @@
+stages:
+  preprocess:
+    cmd: python scripts/preprocess_data.py
+    deps:
+    - scripts/preprocess_data.py
+    - raw_data/weatherAUS.csv
+    - scripts/utils_and_constants.py
+    outs:
+    - processed_data/weatherAUS.csv
+  train:
+    cmd: python scripts/train.py
+    deps:
+    - scripts/metrics.py
+    - scripts/model.py
+    - processed_data/weatherAUS.csv
+    - scripts/train.py
+    - scripts/utils_and_constants.py
+  
+    metrics:
+      - metrics.json:
+          cache: false
+    plots:
+    - predictions.csv:
+        template: confusion
+        x: predicted_label
+        y: true_label
+        x_label: 'Predicted label'
+        y_label: 'True label'
+        title: Confusion matrix
+        cache: false
+    - roc_curve.csv:
+        template: simple
+        x: fpr
+        y: tpr
+        x_label: 'False Positive Rate'
+        y_label: 'True Positive Rate'
+        title: ROC curve
+        cache: false
