@@ -1,9 +1,9 @@
 {
-  "learning_rate": 0.07334354830026403,
-  "max_depth": 49.0,
-  "min_child_weight": 18.443922492065713,
-  "reg_alpha": 0.06509096934569422,
-  "reg_lambda": 0.028219477769531237,
+  "learning_rate": 0.0733,
+  "max_depth": 43.0,
+  "min_child_weight": 18.4439224,
+  "reg_alpha": 0.06509,
+  "reg_lambda": 0.0282194,
   "seed": 42,
   "objective": "binary:logistic"
 }
