@@ -1,5 +1,4 @@
 *.bin
-*.csv
 *.db
 *.dvc
 mlruns/
