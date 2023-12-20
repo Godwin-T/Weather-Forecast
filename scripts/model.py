@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.metrics import (accuracy_score, f1_score, 
                              precision_score, recall_score)
-from utils_and_constants import PARAMETERS
+from utils_and_constants import PARAMETERS, MODEL_PATH
 
 def prep_data(X_train):
 
@@ -68,11 +68,10 @@ def evaluate_model(model, scaler, vectorizer, X_test,
     
     metrics = json.loads(json.dumps(metrics), 
                          parse_float=lambda x: round(float(x), float_precision))
-    return metrics,y_proba
+    return metrics,y_proba, prediction
 
 def save_model(model, scaler, vectorizer):
 
-    model_name = '../models/model.pkl'
-    with open(model_name, 'wb') as f:
+    with open(MODEL_PATH, 'wb') as f:
         pickle.dump([model, scaler, vectorizer], f)
     print("Model saved successfully!")

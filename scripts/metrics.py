@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.metrics import ConfusionMatrixDisplay, roc_curve
+from utils_and_constants import METRICS_PATH, PREDICTIONS_PATH, ROC_CURVE_PATH
 
 
 def plot_confusion_matrix(model, X_test, y_test):
@@ -12,14 +13,14 @@ def plot_confusion_matrix(model, X_test, y_test):
 
 
 def save_metrics(metrics):
-    with open("../metrics.json", "w") as fp:
+    with open(METRICS_PATH, "w") as fp:
         json.dump(metrics, fp)
 
 def save_predictions(y_test, y_pred):
     # Store predictions data for confusion matrix
     cdf = pd.DataFrame(np.column_stack([y_test, y_pred]), 
                        columns=["true_label", "predicted_label"]).astype(int)
-    cdf.to_csv("predictions.csv", index=None)
+    cdf.to_csv(PREDICTIONS_PATH, index=None)
 
 def save_roc_curve(y_test, y_pred_proba):
     # Calcualte ROC curve
@@ -28,4 +29,4 @@ def save_roc_curve(y_test, y_pred_proba):
     cdf = pd.DataFrame(np.column_stack([fpr, tpr]), columns=["fpr", "tpr"]).astype(
         float
     )
-    cdf.to_csv("roc_curve.csv", index=None)
+    cdf.to_csv(ROC_CURVE_PATH, index=None)
