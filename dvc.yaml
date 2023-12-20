@@ -1,4 +1,6 @@
 stages:
+  install requirements:
+    cmd: pip install pandas scikit-learn numpy matplotlib xgboost
   preprocess:
     cmd: python scripts/preprocess_data.py
     deps:
