@@ -104,9 +104,9 @@ def main():
     # Impute & Write processed dataset
     weather_features_processed = impute_data(weather)
 
-    if not os.path.dirname(PROCESSED_DATASET):
-        os.mkdir(os.path.dirname())
-        
+    if not os.path.exists('./processed_data'):
+        os.mkdir('./processed_data')
+
     weather_features_processed.to_csv(PROCESSED_DATASET, index=None)
 
 if __name__ == "__main__":
