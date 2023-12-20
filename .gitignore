@@ -2,6 +2,7 @@
 *.csv
 *.db
 *.dvc
+*.lock
 mlruns/
 tmp/
 *__pycache__/
