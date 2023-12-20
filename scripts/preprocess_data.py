@@ -1,5 +1,6 @@
 from typing import List
 
+import os
 import pandas as pd
 from sklearn.impute import SimpleImputer
 
@@ -102,6 +103,10 @@ def main():
   
     # Impute & Write processed dataset
     weather_features_processed = impute_data(weather)
+
+    if not os.path.dirname(PROCESSED_DATASET):
+        os.mkdir(os.path.dirname())
+        
     weather_features_processed.to_csv(PROCESSED_DATASET, index=None)
 
 if __name__ == "__main__":
