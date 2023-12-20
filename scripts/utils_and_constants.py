@@ -10,9 +10,9 @@ if os.getenv('DVC'):
     PROCESSED_DATASET = "./processed_data/weatherAUS.csv"
     PARAMETERS = "./parameters.json"
     MODEL_PATH = "./models/model.pkl"
-    METRICS_PATH = "./metrics.json"
-    PREDICTIONS_PATH = "./predictions.csv"
-    ROC_CURVE_PATH = "./roc_curve.csv"
+    METRICS_PATH = "./model_output/metrics.json"
+    PREDICTIONS_PATH = "./model_output/predictions.csv"
+    ROC_CURVE_PATH = "./model_output/roc_curve.csv"
 else:
     DATASET_TYPES = ["test", "train"]
     DROP_COLNAMES = ["Date"]
@@ -21,9 +21,9 @@ else:
     PROCESSED_DATASET = "../processed_data/weatherAUS.csv"
     MODEL_PATH = "../models/model.pkl"
     PARAMETERS = "../parameters.json"
-    METRICS_PATH = "../metrics.json"
-    PREDICTIONS_PATH = "../predictions.csv"
-    ROC_CURVE_PATH = "../roc_curve.csv"
+    METRICS_PATH = "../model_output/metrics.json"
+    PREDICTIONS_PATH = "../model_output/predictions.csv"
+    ROC_CURVE_PATH = "../model_output/roc_curve.csv"
 
 
 def delete_and_recreate_dir(path):
