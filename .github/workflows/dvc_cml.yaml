@@ -1,0 +1,37 @@
+name: Trainpipeline Check
+
+on:
+  pull_request: 
+    branches: ["main"]
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup python
+      uses: actions/setup-python@v4
+      with: 
+            python-version: 3.9
+    - name: Setup CML
+      uses: iterative/setup-cml@v1
+          
+    # Setup DVC GitHub Action
+    - name: Setup DVC
+      uses: iterative/setup-dvc@v1
+          
+    # Run DVC pipeline
+    - name: Run DVC pipeline
+      run: DVC=1 dvc repro
+
+    - name: Write CML report
+      env:
+        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+          # Compare metrics with main branch
+          git fetch --prune
+          dvc metrics diff --md main >> metrics_compare.md
+          
+          # Create comment from markdown report
+          cml comment create metrics_compare.md
